@@ -1,12 +1,11 @@
 # react_scaffold_2021
 
 - [x] webpack 5
-- [x] code spliting
-- [x] dynamic imports
+- [x] react
+- [x] less
+- [x] postcss
+- [] lodash
 - [] eslint
 - [] ant design
 - [] redux
 - [] react-router
-- [] sass
-- [] tree shaking
-- [] lazy load

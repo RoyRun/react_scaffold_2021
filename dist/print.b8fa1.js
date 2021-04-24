@@ -1,0 +1,1 @@
+(self.webpackChunkreact_scaffold_2021=self.webpackChunkreact_scaffold_2021||[]).push([[740],{3544:(s,c,e)=>{"use strict";e(6486)}},s=>{"use strict";s.O(0,[736],(()=>(3544,s(s.s=3544)))),s.O()}]);

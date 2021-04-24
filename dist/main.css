@@ -2,5 +2,10 @@ body {
     width: 400px;
     height: 400px;
     border: 1px solid red;
-    background: url(/images/94dc8fca2bcbc62db1b6.png);
+    background: url(/images/404_94dc8fca2bcbc62db1b66f875d186840.png);
 }
+body::after {
+  content: 'hello';
+  color: red;
+}
+

@@ -1,6 +1,7 @@
 import './index.css';
 import IMG from './404.png';
-
+import BabelPage from './babelPage.jsx';
+import './index.less'
 function getComponent() {
     // const element = document.createElement('div');
     // const IMG404 = new Image();
