@@ -3,20 +3,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
+const { loader } = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: {
-        print: './src/print.js',
-        main: './src/index.js'
-        // main: {
-        //     import : './src/index.js',
-        //     dependOn: 'shared' // 多文件入口共享模块
-        // }
-    },
+    entry: './src/index.js',
     output: {
         filename: '[name].[contenthash:5].js',
         path: path.resolve(__dirname, 'dist'),
-        // assetModuleFilename: 'images/[hash][ext][query]',
+        assetModuleFilename: 'images/[hash][ext][query]',
         clean: true,
         publicPath: '/', // 引入js文件前缀路径
         // library: { // 发布包时的名称和支持的方式：commonJS, AMD, script
@@ -36,9 +30,9 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: [[
-                            '@babel/preset-env',
+                            '@babel/preset-env', // 包含所有es 最新特性
                             {
-                                useBuiltIns:  'usage' // 按需加载
+                                useBuiltIns:  'usage' // polifill 按需加载
                             }
                         ],[
                             '@babel/preset-react',
@@ -83,8 +77,7 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 8192, // <8k img to DataURL
-                            name: 'images/[name]_[hash].[ext]'
+                            limit: 1024*8 // 8k
                         }
                     }
                 ]
@@ -96,7 +89,23 @@ module.exports = {
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource' // 自定义loader 可用type: 'javescript/auto'
-            }
+            }, {
+                test: /.html$/,
+                use: {
+                  loader: 'html-loader', // TODO:
+                  options: {
+                    sources: {
+                        list: [
+                            '...',
+                            {
+                            tag: 'img',
+                            attribute: 'src',
+                            type: 'src'
+                        }]
+                    }
+                  }
+                }
+              }
         ]
     },
     plugins: [
@@ -106,6 +115,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             title: 'my page',
+            minify: false,
             template: path.resolve(__dirname, 'build/index.html'),
             favicon: path.resolve(__dirname, 'build/favicon.ico'),
         })
