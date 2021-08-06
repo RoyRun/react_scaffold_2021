@@ -3,8 +3,20 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const { loader } = require('mini-css-extract-plugin');
 
+const devMode = process.env.NODE_ENV !== 'production';
+
+const plugins = [
+    new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
+    new HtmlWebpackPlugin({
+        title: 'my page',
+        minify: false,
+        template: path.resolve(__dirname, 'build/index.html'),
+        favicon: path.resolve(__dirname, 'build/favicon.ico'),
+    })
+]
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -52,7 +64,7 @@ module.exports = {
             {
                 test: /\.less$/i,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
                     {
                         loader: 'less-loader',
@@ -66,7 +78,7 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                      'css-loader',
                      'postcss-loader'
                     ]
@@ -89,35 +101,8 @@ module.exports = {
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource' // 自定义loader 可用type: 'javescript/auto'
-            }, {
-                test: /.html$/,
-                use: {
-                  loader: 'html-loader', // TODO:
-                  options: {
-                    sources: {
-                        list: [
-                            '...',
-                            {
-                            tag: 'img',
-                            attribute: 'src',
-                            type: 'src'
-                        }]
-                    }
-                  }
-                }
-              }
+            }
         ]
     },
-    plugins: [
-        new MiniCssExtractPlugin(),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-        }),
-        new HtmlWebpackPlugin({
-            title: 'my page',
-            minify: false,
-            template: path.resolve(__dirname, 'build/index.html'),
-            favicon: path.resolve(__dirname, 'build/favicon.ico'),
-        })
-    ]
+    plugins: devMode ?  myPlugin : myPlugin.shift(new MiniCssExtractPlugin()),
 }

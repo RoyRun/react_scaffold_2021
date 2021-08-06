@@ -1,14 +1,10 @@
 import './index.css';
 import './index.less'
 
-import FooterHtml from './test.html';
 import React from 'react';
 import Root from './Home/index.jsx';
 import ReactDom from 'react-dom'
-// setTimeout(() => {
-//   document.write(FooterHtml);
 
-// },0)
 ReactDom.render(<Root/>,document.getElementById('root'));
 
 // function getComponent() {
