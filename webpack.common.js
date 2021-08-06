@@ -3,10 +3,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-
 const devMode = process.env.NODE_ENV !== 'production';
 
-const plugins = [
+const myPlugin = [
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
@@ -63,6 +62,7 @@ module.exports = {
             },
             {
                 test: /\.less$/i,
+                exclude: /node_modules/,
                 use: [
                     devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
@@ -77,6 +77,7 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
+                exclude: /node_modules/,
                 use: [
                     devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                      'css-loader',
@@ -85,6 +86,7 @@ module.exports = {
             },
             {
                 test: /\.(jpg|png|jpeg|gif)$/i,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'url-loader',
@@ -100,6 +102,7 @@ module.exports = {
             // }, 
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                exclude: /node_modules/,
                 type: 'asset/resource' // 自定义loader 可用type: 'javescript/auto'
             }
         ]
