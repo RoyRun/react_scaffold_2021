@@ -4,6 +4,7 @@
 - [x] react
 - [x] less
 - [x] postcss
+- [x] moment 
 - [] lodash
 - [] eslint
 - [] ant design
