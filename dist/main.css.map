@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://react_scaffold_2021/./src/index.css"],"names":[],"mappings":"AACA,KAGI,oBAAqB,CADrB,YAAa,CADb,WAIJ","file":"main.css","sourcesContent":["\nbody {\n    width: 400px;\n    height: 400px;\n    border: 1px solid red;\n    /* background: url('./404.png'); */\n}"],"sourceRoot":""}
