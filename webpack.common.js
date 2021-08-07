@@ -2,16 +2,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const MomentLocalesWebpackPlugin = require('moment-locales-webpack-plugin');
 const LodashModuleReplaceMentPlugin = require('lodash-webpack-plugin')
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const devMode = process.env.NODE_ENV !== 'production';
 
 const myPlugin = [
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin(),
     new LodashModuleReplaceMentPlugin,
-    new MomentLocalesWebpackPlugin(),
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),

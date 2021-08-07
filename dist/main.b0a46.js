@@ -23,9 +23,9 @@ var getPrototypeOf = __webpack_require__(891);
 // EXTERNAL MODULE: ./node_modules/lodash/map.js
 var map = __webpack_require__(5161);
 var map_default = /*#__PURE__*/__webpack_require__.n(map);
-// EXTERNAL MODULE: ./node_modules/moment/moment.js
-var moment = __webpack_require__(381);
-var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
+// EXTERNAL MODULE: ./node_modules/dayjs/dayjs.min.js
+var dayjs_min = __webpack_require__(7484);
+var dayjs_min_default = /*#__PURE__*/__webpack_require__.n(dayjs_min);
 ;// CONCATENATED MODULE: ./src/context/index.js
 
 var themes = {
@@ -68,7 +68,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this);
     _this.state = {
-      count: moment_default().locale(),
+      count: dayjs_min_default()().format(),
       theme: themes.light,
       data: map_default()([1, 2, 3], function (item) {
         return item + 1;
@@ -118,21 +118,6 @@ react_dom.render( /*#__PURE__*/react.createElement(Home, null), document.getElem
 //   getComponent().then((component) => {
 //     document.body.appendChild(component);
 //   });
-
-/***/ }),
-
-/***/ 9674:
-/***/ ((module) => {
-
-function webpackEmptyContext(req) {
-	var e = new Error("Cannot find module '" + req + "'");
-	e.code = 'MODULE_NOT_FOUND';
-	throw e;
-}
-webpackEmptyContext.keys = () => ([]);
-webpackEmptyContext.resolve = webpackEmptyContext;
-webpackEmptyContext.id = 9674;
-module.exports = webpackEmptyContext;
 
 /***/ })
 

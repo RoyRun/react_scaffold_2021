@@ -4,7 +4,7 @@
 - [x] react
 - [x] less
 - [x] postcss
-- [x] moment 
+- [x] dayjs: 时间处理工具 
 - [x] lodash
 - [] eslint
 - [] ant design

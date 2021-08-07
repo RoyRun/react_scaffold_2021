@@ -1,13 +1,13 @@
 
 import React, { Fragment } from 'react';
-import moment from 'moment';
+import day from 'dayjs';
 import _ from 'lodash';
 import {context, themes} from '../context';
 export default class Home extends React.Component {
     constructor() {
         super()
         this.state = {
-            count: moment.locale(),
+            count: day().format(),
             theme: themes.light,
             data: _.map([1,2,3], item => item+1)
         }
