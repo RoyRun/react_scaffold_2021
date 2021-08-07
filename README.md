@@ -5,7 +5,7 @@
 - [x] less
 - [x] postcss
 - [x] moment 
-- [] lodash
+- [x] lodash
 - [] eslint
 - [] ant design
 - [] redux

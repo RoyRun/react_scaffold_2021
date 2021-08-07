@@ -4,8 +4,8 @@ const common = require('./webpack.common.js');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 
 const smp = new SpeedMeasurePlugin({
-    outputFormat: 'humanVerbose',
-    loaderTopFiles: 10
+    // outputFormat: 'humanVerbose',
+    // loaderTopFiles: 10
 });
 
 module.exports = smp.wrap(merge(common, {

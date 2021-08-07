@@ -1,0 +1,19 @@
+{
+    "presets": [[
+        "@babel/preset-env", // 包含所有es 最新特性
+        {
+            "useBuiltIns":  "usage"// polifill 按需加载
+        }
+    ],[
+        "@babel/preset-react"
+    ]],
+    "plugins": [
+        "lodash",
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "corejs": 3
+            }
+        ]
+    ]
+}
