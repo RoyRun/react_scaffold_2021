@@ -6,6 +6,7 @@
 - [x] postcss
 - [x] dayjs: 时间处理工具 
 - [x] lodash
+- [x] markdown 
 - [] eslint
 - [] ant design
 - [] redux

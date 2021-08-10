@@ -8,7 +8,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const devMode = process.env.NODE_ENV !== 'production';
 
 const myPlugin = [
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new LodashModuleReplaceMentPlugin,
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -33,21 +33,23 @@ module.exports = {
         //     type: 'umd'
         // }
     },
-    // externals: {
-    //     lodash 
-    // },
     module: {
         rules: [
             {
                 test: /\.(jsx|js)$/i,
                 exclude: /node_modules/,
-                use: {
+                use: [{
                     loader: 'babel-loader',
                     options: {
                         
                         cacheDirectory: true // speed up bable-loader 
                     }
-                }
+                }]
+            },
+            {
+                test: /\.md$/i,
+                exclude: /node_modules/,
+                use: ['html-loader','markdown-loader']
             },
             {
                 test: /\.less$/i,
@@ -97,4 +99,10 @@ module.exports = {
         ]
     },
     plugins: devMode ?  myPlugin : [new MiniCssExtractPlugin(), ...myPlugin],
+    resolveLoader: {
+        modules: [
+            'node_modules',
+            path.resolve(__dirname, 'loaders')
+        ]
+    }
 }

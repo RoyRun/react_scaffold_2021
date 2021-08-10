@@ -5,8 +5,9 @@
 
 "use strict";
 
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(7294);
+// EXTERNAL MODULE: external "React"
+var external_React_ = __webpack_require__(3804);
+var external_React_default = /*#__PURE__*/__webpack_require__.n(external_React_);
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs3/core-js-stable/reflect/construct.js
 var construct = __webpack_require__(1068);
 var construct_default = /*#__PURE__*/__webpack_require__.n(construct);
@@ -36,7 +37,7 @@ var themes = {
     background: '#222222'
   }
 };
-var context = /*#__PURE__*/react.createContext(themes.dark);
+var context = /*#__PURE__*/external_React_default().createContext(themes.dark);
 context.displayName = 'themeContext';
 
 ;// CONCATENATED MODULE: ./src/Home/index.jsx
@@ -80,16 +81,16 @@ var Home = /*#__PURE__*/function (_React$Component) {
   (0,createClass/* default */.Z)(Home, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(context.Provider, {
+      return /*#__PURE__*/external_React_default().createElement(external_React_.Fragment, null, /*#__PURE__*/external_React_default().createElement(context.Provider, {
         value: this.state.theme
-      }, this.state.count, /*#__PURE__*/react.createElement("img", {
+      }, this.state.count, /*#__PURE__*/external_React_default().createElement("img", {
         src: "/image.png"
       })));
     }
   }]);
 
   return Home;
-}(react.Component);
+}((external_React_default()).Component);
 
 
 // EXTERNAL MODULE: ./node_modules/react-dom/index.js
@@ -100,7 +101,7 @@ var react_dom = __webpack_require__(3935);
 
 
 
-react_dom.render( /*#__PURE__*/react.createElement(Home, null), document.getElementById('root')); // function getComponent() {
+react_dom.render( /*#__PURE__*/external_React_default().createElement(Home, null), document.getElementById('root')); // function getComponent() {
 //     // const element = document.createElement('div');
 //     // const IMG404 = new Image();
 //     // IMG404.src = IMG;
@@ -118,6 +119,14 @@ react_dom.render( /*#__PURE__*/react.createElement(Home, null), document.getElem
 //   getComponent().then((component) => {
 //     document.body.appendChild(component);
 //   });
+
+/***/ }),
+
+/***/ 3804:
+/***/ ((module) => {
+
+"use strict";
+module.exports = React;
 
 /***/ })
 
